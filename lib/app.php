@@ -31,6 +31,10 @@ class App
 			case 'admin_add_question':
 				$this->page_content = $this->admin_add_question();
 				break;
+
+			case 'admin_delete_question':
+				$this->page_content = $this->admin_remove_question();
+				break;
 			
 			default:
 				$this->page_content = $this->index();
@@ -47,6 +51,17 @@ class App
 		$this->load_template('admin/index');
 		$questions = $this->question_collection->all();
 		return $this->render(array("questions" => $questions));
+	}
+
+	public function admin_remove_question() {
+		$question = null;
+		if(array_key_exists('id', $_GET)) {
+			$question = $this->question_collection->get($_GET['id']);
+			$question->delete();
+			header("Location: /?p=admin");
+		}
+		$this->load_template('admin/add_question');
+		return $this->render($question);
 	}
 
 	public function admin_add_question() {

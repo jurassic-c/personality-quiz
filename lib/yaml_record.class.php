@@ -24,4 +24,9 @@ class YamlRecord
 	public function get_attributes() {
 		return $this->attributes;
 	}
+
+	public function delete(){
+		$this->collection->delete($this->id);
+	}
+
 }

@@ -42,6 +42,17 @@ class YamlRecordCollection
 		$this->data['last_id']+=1;
 		return $this->collection."_".$this->data['last_id'];
 	}
+
+	public function get($id){
+		$attribues = $this->data['records'][$id];
+		$result = new YamlRecord($this, $attribues);
+		return $result;
+	}
+
+	public function delete($id){
+		unset($this->data['records'][$id]);
+		$this->serialize();
+	}
 }
 
 

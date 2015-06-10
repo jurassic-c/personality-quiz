@@ -14,4 +14,12 @@ class QuestionCollection extends YamlRecordCollection
 		}
 		return $result;
 	}
+
+	public function get($id){
+		$record = parent::get($id);
+		$attributes = $record->get_attributes();
+		$result = new Question($this, $attributes);
+		return $result;
+	}
+
 }
