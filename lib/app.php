@@ -5,6 +5,7 @@ class App
 {
 
 	var $page_content = "";
+	var $template = "";
 
 	public function __construct() {
 
@@ -21,14 +22,26 @@ class App
 				break;
 			
 			default:
-				$this->page_content = "KILL ME IM HERE!!!";
+				$this->page_content = $this->index();
 				break;
 		}
 	}
 
+	public function index() {
+
+	}
+
 	public function admin() {
-		$template = file_get_contents(APP_ROOT.'/views/admin/index.html');
+		$this->load_template('admin/index');
+		return $this->render(array("message"=>"KILL ME IM ADMIN VARIABLE!!!!!"));
+	}
+
+	public function render($variables=array()) {
 		$m = new Mustache_Engine;
-		echo $m->render($template, array("message"=>"KILL ME IM ADMIN!!!"));
+		return $m->render($this->template, $variables);
+	}
+
+	private function load_template($template_name) {
+		$this->template = file_get_contents(APP_ROOT.'/views/'.$template_name.'.html');
 	}
 }
