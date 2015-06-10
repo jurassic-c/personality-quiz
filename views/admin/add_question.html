@@ -1,0 +1,34 @@
+<div class="row">
+	<div class="col-xs-12">
+		<h3>New Question</h3>
+		<form method="post" action="?p=admin_add_question">
+			<div class="form-group">
+				<label for="text">Question Text</label>
+				<input id="text" type="text" name="question[text]" class="form-control">
+			</div>
+			<div class="form-group">
+				<label>Question Indicator</label><br />
+				<input id="text_a_ind_ei" type="radio" value="ei" name="question[indicator]">
+				<label for="question_ind_ei">E/I</label>
+
+				<input id="question_ind_ns" type="radio" value="ns" name="question[indicator]">
+				<label for="question_ind_ns">N/S</label>
+
+				<input id="question_ind_ft" type="radio" value="ft" name="question[indicator]">
+				<label for="question_ind_ft">F/T</label>
+
+				<input id="question_ind_jp" type="radio" value="jp" name="question[indicator]">
+				<label for="question_ind_jp">J/P</label>
+			</div>
+			<div class="form-group">
+				<label for="text_a">Answer A Text</label>
+				<input id="text_a" type="text" name="question[text_a]" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="text_b">Answer B Text</label>
+				<input id="text_b" type="text" name="question[text_b]" class="form-control">
+			</div>
+			<button type="submit" class="btn btn-primary">Save</button>
+		</form>
+	</div>
+</div>

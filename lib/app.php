@@ -20,6 +20,10 @@ class App
 			case 'admin':
 				$this->page_content = $this->admin();
 				break;
+
+			case 'admin_add_question':
+				$this->page_content = $this->admin_add_question();
+				break;
 			
 			default:
 				$this->page_content = $this->index();
@@ -28,12 +32,18 @@ class App
 	}
 
 	public function index() {
-
+		$this->load_template('index');
+		return $this->render();
 	}
 
 	public function admin() {
 		$this->load_template('admin/index');
-		return $this->render(array("message"=>"KILL ME IM ADMIN VARIABLE!!!!!"));
+		return $this->render();
+	}
+
+	public function admin_add_question() {
+		$this->load_template('admin/add_question');
+		return $this->render();
 	}
 
 	public function render($variables=array()) {
