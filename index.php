@@ -10,7 +10,5 @@ $app = new App();
 
 $page = $_GET['p'];
 
-require __DIR__.'/views/header.php';
 $app->process($page);
 echo $app->content();
-require __DIR__.'/views/footer.php';

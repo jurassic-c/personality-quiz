@@ -1,6 +1,8 @@
 <?php
 
 require APP_ROOT.'/lib/yaml_record_collection.model.php';
+require APP_ROOT.'/lib/question_collection.class.php';
+require APP_ROOT.'/lib/yaml_record.class.php';
 require APP_ROOT.'/lib/question.model.php';
 
 class App
@@ -11,11 +13,13 @@ class App
 	var $question_collection;
 
 	public function __construct() {
-		$this->question_collection = new YamlRecordCollection('questions', 'data');
+		$this->question_collection = new QuestionCollection('data');
 	}
 
 	public function content() {
-		return $this->page_content;
+		$header = file_get_contents(APP_ROOT.'/views/header.html');
+		$footer = file_get_contents(APP_ROOT.'/views/footer.html');
+		return $header.$this->page_content.$footer;
 	}
 
 	public function process($page) {
@@ -41,7 +45,8 @@ class App
 
 	public function admin() {
 		$this->load_template('admin/index');
-		return $this->render();
+		$questions = $this->question_collection->all();
+		return $this->render(array("questions" => $questions));
 	}
 
 	public function admin_add_question() {
@@ -49,6 +54,7 @@ class App
 		if(array_key_exists('question', $_POST)) {
 			$question = new Question($this->question_collection, $_POST['question']);
 			$question->save();
+			header("Location: /?p=admin");
 		}
 		$this->load_template('admin/add_question');
 		return $this->render($question);

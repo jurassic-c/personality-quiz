@@ -19,6 +19,14 @@ class YamlRecordCollection
 		$this->serialize();
 	}
 
+	public function all() {
+		$objects = array();
+		foreach ($this->data['records'] as $record_data) {
+			$objects[] = new YamlRecord($this, $record_data);
+		}
+		return $objects;
+	}
+
 	public function save($attributes) {
 		$id = (array_key_exists("id", $attributes) and $attributes["id"]) ? $attributes["id"] : $this->guid();
 		$attributes["id"] = $id;
@@ -35,5 +43,6 @@ class YamlRecordCollection
 		return $this->collection."_".$this->data['last_id'];
 	}
 }
+
 
 class YamlRecordCollectionFileException extends InvalidArgumentException {}
