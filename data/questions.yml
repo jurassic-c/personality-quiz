@@ -1,0 +1,14 @@
+last_id: 2
+records:
+  questions_1:
+    id: questions_1
+    text: Test
+    text_a: Test A
+    text_b: Test B
+    indicator: Test
+  questions_2:
+    id: questions_2
+    text: Test 2
+    text_a: Foobar
+    text_b: Baz
+    indicator: Test 2

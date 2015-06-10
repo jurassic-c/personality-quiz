@@ -4,8 +4,50 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7054918014ab3c8fb3536507f664a723",
+    "hash": "ad3ff6f35323f8388821ba82d047fcde",
     "packages": [
+        {
+            "name": "kirby/toolkit",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/getkirby/toolkit.git",
+                "reference": "0bdd9b5d0a613f14176b2c4438054cf3399ac564"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/getkirby/toolkit/zipball/0bdd9b5d0a613f14176b2c4438054cf3399ac564",
+                "reference": "0bdd9b5d0a613f14176b2c4438054cf3399ac564",
+                "shasum": ""
+            },
+            "replace": {
+                "abeautifulsite/simpleimage": "2.5.3",
+                "mustangostang/spyc": "0.5.1"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bastian Allgeier",
+                    "email": "bastian@getkirby.com",
+                    "homepage": "http://bastianallgeier.com"
+                }
+            ],
+            "description": "The Kirby 2 toolkit is a set of handy classes and helpers which make your life with PHP easier.",
+            "homepage": "http://toolkit.getkirby.com",
+            "keywords": [
+                "toolkit"
+            ],
+            "time": "2015-05-19 12:10:10"
+        },
         {
             "name": "mustache/mustache",
             "version": "v2.8.0",

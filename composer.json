@@ -1,5 +1,6 @@
 {
     "require": {
-        "mustache/mustache": "2.8.0"
+        "mustache/mustache": "2.8.0",
+        "kirby/toolkit": "2.1.0"
     }
 }

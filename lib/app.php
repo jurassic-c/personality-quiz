@@ -1,14 +1,17 @@
 <?php
 
+require APP_ROOT.'/lib/yaml_record_collection.model.php';
+require APP_ROOT.'/lib/question.model.php';
 
 class App
 {
 
 	var $page_content = "";
 	var $template = "";
+	var $question_collection;
 
 	public function __construct() {
-
+		$this->question_collection = new YamlRecordCollection('questions', 'data');
 	}
 
 	public function content() {
@@ -42,8 +45,13 @@ class App
 	}
 
 	public function admin_add_question() {
+		$question = null;
+		if(array_key_exists('question', $_POST)) {
+			$question = new Question($this->question_collection, $_POST['question']);
+			$question->save();
+		}
 		$this->load_template('admin/add_question');
-		return $this->render();
+		return $this->render($question);
 	}
 
 	public function render($variables=array()) {

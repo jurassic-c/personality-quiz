@@ -2,7 +2,7 @@
 
 define('APP_ROOT',__DIR__);
 
-require __DIR__.'/lib/Mustache/Autoloader.php';
+require __DIR__.'/vendor/autoload.php';
 Mustache_Autoloader::register();
 require __DIR__.'/lib/app.php';
 
