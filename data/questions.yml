@@ -1,4 +1,4 @@
-last_id: 3
+last_id: 4
 records:
   questions_1:
     id: questions_1
@@ -18,3 +18,9 @@ records:
     text_a: Test Text 3a
     text_b: Test Text 3b
     indicator: Test 3
+  questions_4:
+    id: questions_4
+    text: Test 5
+    text_a: Test 5 text A
+    text_b: Test 5 text B
+    indicator: Test 5
